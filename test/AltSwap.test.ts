@@ -18,14 +18,18 @@ describe('AltSwap', () => {
     let deployer: Signer
 
     beforeEach(async () => {
+
       [deployer] = await ethers.getSigners()
       altSwapFactory = new AltSwap__factory(deployer)
+
       altSwap = await altSwapFactory.deploy(
         deployer, 
         '0x10ED43C718714eb63d5aA57B78B54704E256024E',
         '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
       )
+
       await altSwap.deployed()
+      
     })
 
     it('should have the correct address', async () => {
